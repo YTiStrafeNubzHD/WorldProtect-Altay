@@ -78,7 +78,7 @@ class Main extends BasicPlugin implements CommandExecutor,Listener {
 	//////////////////////////////////////////////////////////////////////
 	public function loadCfg($world) {
 
-		if ($world instanceof Level) $world = $world->getName();
+		if ($world instanceof Level) $world = $this->getServer()->getLevelManager()->getLevel();
 		if (isset($this->wcfg[$world])) return true; // world is already loaded!
 		if (!$this->getServer()->isLevelGenerated($world)) return false;
 		if (!$this->getServer()->isLevelLoaded($world)) {
