@@ -53,7 +53,7 @@ class Main extends BasicPlugin implements CommandExecutor,Listener {
 		$this->modules[] = new WpList($this);
 
 		// Make sure that loaded worlds are indeed loaded...
-		foreach ($this->getServer()->getLevels() as $lv) {
+		foreach ($this->getServer()->getLevelManager()->getLevels() as $lv) {
 			$this->loadCfg($lv);
 		}
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
