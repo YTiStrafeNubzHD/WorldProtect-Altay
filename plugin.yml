@@ -1,5 +1,5 @@
 main: aliuly\worldprotect\Main
-api: [3.0.0]
+api: [4.0.0]
 load: STARTUP
 
 name: WorldProtect
