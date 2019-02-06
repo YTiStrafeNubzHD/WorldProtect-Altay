@@ -201,10 +201,10 @@ class Main extends BasicPlugin implements CommandExecutor,Listener {
 	//
 	//////////////////////////////////////////////////////////////////////
 	public function onLevelLoad(LevelLoadEvent $e) {
-		$this->loadCfg($e->call());
+		$this->loadCfg($e->getLevel());
 	}
 	public function onLevelUnload(LevelUnloadEvent $e) {
-		$this->unloadCfg($e->call());
+		$this->unloadCfg($e->getLevel());
 	}
 
 	//////////////////////////////////////////////////////////////////////
