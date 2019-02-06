@@ -110,7 +110,7 @@ class Main extends BasicPlugin implements CommandExecutor,Listener {
 	}
 	public function saveCfg($world) {
 
-		if ($world instanceof Level) $world = $world->getName();
+		if ($world instanceof Level) $world = $this->getServer()->getLevelManager()->getLevel();
 		if (!isset($this->wcfg[$world])) return false; // Nothing to save!
 		if (!$this->getServer()->isLevelGenerated($world)) return false;
 		if (!$this->getServer()->isLevelLoaded($world)) {
@@ -132,7 +132,7 @@ class Main extends BasicPlugin implements CommandExecutor,Listener {
 	}
 	public function unloadCfg($world) {
 
-		if ($world instanceof Level) $world = $world->getName();
+		if ($world instanceof Level) $world = $this->getServer()->getLevelManager()->getLevel();
 		if (isset($this->wcfg[$world])) unset($this->wcfg[$world]);
 		foreach ($this->modules as $i=>$mod) {
 			if (!($mod instanceof BaseWp)) continue;
@@ -140,7 +140,7 @@ class Main extends BasicPlugin implements CommandExecutor,Listener {
 		}
 	}
 	public function getCfg($world,$key,$default) {
-		if ($world instanceof Level) $world = $world->getName();
+		if ($world instanceof Level) $world = $this->getServer()->getLevelManager()->getLevel();
 		if ($this->getServer()->isLevelLoaded($world))
 			$unload = false;
 		else {
@@ -156,7 +156,7 @@ class Main extends BasicPlugin implements CommandExecutor,Listener {
 		return $res;
 	}
 	public function setCfg($world,$key,$value) {
-		if ($world instanceof Level) $world = $world->getName();
+		if ($world instanceof Level) $world = $this->getServer()->getLevelManager()->getLevel();
 		if ($this->getServer()->isLevelLoaded($world))
 			$unload = false;
 		else {
@@ -176,7 +176,7 @@ class Main extends BasicPlugin implements CommandExecutor,Listener {
 		return true;
 	}
 	public function unsetCfg($world,$key) {
-		if ($world instanceof Level) $world = $world->getName();
+		if ($world instanceof Level) $world = $this->getServer()->getLevelManager()->getLevel();
 		if ($this->getServer()->isLevelLoaded($world))
 			$unload = false;
 		else {
