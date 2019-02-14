@@ -89,7 +89,7 @@ class Main extends BasicPlugin implements CommandExecutor, Listener
         if (!Server::getInstance()->getLevelManager()->isLevelLoaded($world)) {
             $path = $this->getServer()->getDataPath() . "worlds/" . $world . "/";
         } else {
-            $level = $this->getServer()->getLevelByName($world);
+            $level = Server::getInstance()->getLevelManager()->getLevelByName($world);
             if (!$level) return false;
             $path = $level->getProvider()->getPath();
         }
