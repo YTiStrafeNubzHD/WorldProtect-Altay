@@ -26,6 +26,7 @@ use pocketmine\Player;
 use aliuly\worldprotect\common\mc;
 use aliuly\worldprotect\common\MPMU;
 use aliuly\worldprotect\common\BasicPlugin;
+use pocketmine\Server;
 
 class Main extends BasicPlugin implements CommandExecutor, Listener
 {
