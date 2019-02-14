@@ -84,8 +84,8 @@ class Main extends BasicPlugin implements CommandExecutor, Listener
 
         if ($world instanceof Level) $world = $world->getDisplayName();
         if (isset($this->wcfg[$world])) return true; // world is already loaded!
-        if (!$this->getServer()->isLevelGenerated($world)) return false;
-        if (!$this->getServer()->isLevelLoaded($world)) {
+        if (!Server::getInstance()->getLevelManager()->isLevelGenerated($world)) return false;
+        if (!Server::getInstance()->getLevelManager()->isLevelLoaded($world)) {
             $path = $this->getServer()->getDataPath() . "worlds/" . $world . "/";
         } else {
             $level = $this->getServer()->getLevelByName($world);
